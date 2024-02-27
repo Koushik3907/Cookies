@@ -18,6 +18,22 @@ public class controller extends HttpServlet {
      
     }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	String action = request.getParameter("action");
+    	
+    	switch(action) {
+    	
+    	case "login":{
+    		request.getRequestDispatcher("index.jsp").forward(request, response);;
+    		break;
+    	}
+    	default:{
+    		request.getRequestDispatcher("jump.jsp").forward(request, response);;
+    		break;
+    	}
+    	}
+    	
+    }
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
